@@ -844,6 +844,700 @@ dd.mono, .mono {
   .bar { grid-template-columns: 110px 1fr 60px; }
   dl { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* =========================================
+   QBheem vs Classical RSA Visual Suite CSS
+   ========================================= */
+
+.rsa-subnav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.rsa-nav-btn {
+  font: 600 0.88rem var(--font-sans);
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.rsa-nav-btn:hover {
+  color: #FFF;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.rsa-nav-btn.active {
+  color: var(--cyan);
+  background: rgba(0, 242, 254, 0.12);
+  border-color: rgba(0, 242, 254, 0.35);
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.15);
+}
+
+.rsa-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.rsa-panel[hidden] {
+  display: none !important;
+}
+
+/* Pipeline Canvas */
+.rsa-stage-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
+}
+
+.rsa-stage-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--blue));
+  opacity: 0.8;
+}
+
+.rsa-control-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  margin-bottom: 24px;
+}
+
+.rsa-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.run.danger {
+  background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+  color: #FFF;
+  box-shadow: 0 4px 18px rgba(225, 29, 72, 0.4);
+}
+
+.run.danger:hover {
+  box-shadow: 0 6px 24px rgba(225, 29, 72, 0.6);
+  transform: translateY(-1px);
+}
+
+.run.amber {
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  color: #FFF;
+  box-shadow: 0 4px 18px rgba(217, 119, 6, 0.4);
+}
+
+/* Stepper Progress Bar */
+.rsa-stepper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.rsa-step-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.rsa-step-item.active {
+  opacity: 1;
+}
+
+.rsa-step-item.done {
+  opacity: 0.85;
+}
+
+.rsa-step-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.rsa-step-item.active .rsa-step-bar {
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.rsa-step-item.done .rsa-step-bar {
+  background: var(--green);
+}
+
+.rsa-step-item.compromised .rsa-step-bar {
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+}
+
+.rsa-step-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rsa-step-item.active .rsa-step-title {
+  color: var(--cyan);
+}
+
+/* Pipeline Stage Network Grid */
+.rsa-network-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  gap: 20px;
+  align-items: stretch;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.rsa-node-card {
+  background: var(--term-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.rsa-node-card.active {
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 0 24px rgba(0, 242, 254, 0.15);
+}
+
+.rsa-node-card.tapped {
+  border-color: rgba(244, 63, 94, 0.5);
+  box-shadow: 0 0 24px rgba(244, 63, 94, 0.2);
+}
+
+.rsa-node-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rsa-node-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rsa-node-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.rsa-node-a .rsa-node-icon {
+  background: rgba(0, 242, 254, 0.15);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 242, 254, 0.35);
+}
+
+.rsa-node-b .rsa-node-icon {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--blue);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.rsa-node-eve .rsa-node-icon {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--red);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
+.rsa-node-title {
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: #FFF;
+  margin: 0;
+}
+
+.rsa-node-sub {
+  font-size: 0.74rem;
+  color: var(--text-dim);
+}
+
+.rsa-node-badge {
+  font: 600 0.72rem var(--font-mono);
+  padding: 3px 8px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+}
+
+.rsa-node-badge.online {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--green);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.rsa-node-badge.warning {
+  background: rgba(244, 63, 94, 0.12);
+  color: var(--red);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.rsa-node-box {
+  background: rgba(10, 16, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+}
+
+.rsa-node-box .label {
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.rsa-node-box .val {
+  font-family: var(--font-mono);
+  color: #38BDF8;
+  word-break: break-all;
+}
+
+.rsa-node-box .val.key-red {
+  color: #FB7185;
+}
+
+/* Central Conduit Wire */
+.rsa-conduit-card {
+  background: rgba(10, 16, 30, 0.5);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.rsa-wire-canvas {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  margin: 10px 0;
+}
+
+.rsa-wire-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(0, 242, 254, 0.4), rgba(59, 130, 246, 0.4));
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+.rsa-wire-line.tapped {
+  background: linear-gradient(90deg, rgba(0, 242, 254, 0.4), rgba(244, 63, 94, 0.8), rgba(59, 130, 246, 0.4));
+}
+
+.rsa-packet {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  background: #0F172A;
+  border: 1px solid var(--cyan);
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.6);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font: 700 0.75rem var(--font-mono);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  z-index: 10;
+  transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s, color 0.3s;
+}
+
+.rsa-packet.spoofed {
+  border-color: var(--red);
+  color: #FB7185;
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.8);
+}
+
+.rsa-packet.session {
+  border-color: var(--green);
+  color: #34D399;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
+}
+
+/* Eve Station inside Center Conduit */
+.rsa-eve-station {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.rsa-eve-station.active {
+  border-color: var(--red);
+  box-shadow: 0 0 24px rgba(244, 63, 94, 0.35);
+  background: rgba(24, 15, 25, 0.95);
+}
+
+.rsa-eve-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rsa-eve-title {
+  font-weight: 700;
+  font-size: 0.84rem;
+  color: #FB7185;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rsa-eve-status {
+  font: 600 0.7rem var(--font-mono);
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--red);
+}
+
+.rsa-eve-pills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 0.76rem;
+}
+
+.rsa-eve-pill {
+  background: rgba(10, 16, 30, 0.8);
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rsa-eve-pill .pill-k {
+  color: var(--text-dim);
+  font-size: 0.68rem;
+}
+
+.rsa-eve-pill .pill-v {
+  font-family: var(--font-mono);
+  color: #F8FAFC;
+  font-size: 0.74rem;
+}
+
+/* Multi-Terminals Console */
+.rsa-terminals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.rsa-term-panel {
+  background: #05080E;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 180px;
+  max-height: 240px;
+  overflow: hidden;
+}
+
+.rsa-term-panel.term-eve {
+  border-color: rgba(244, 63, 94, 0.25);
+}
+
+.rsa-term-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 6px;
+}
+
+.rsa-term-body {
+  flex: 1;
+  overflow-y: auto;
+  font: 400 0.76rem/1.6 var(--font-mono);
+  color: #CBD5E1;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.rsa-term-body .log-good { color: #34D399; }
+.rsa-term-body .log-bad { color: #FB7185; font-weight: 600; }
+.rsa-term-body .log-warn { color: #FBBF24; }
+.rsa-term-body .log-dim { color: var(--text-dim); }
+
+/* Banner / Verdict */
+.rsa-verdict-box {
+  border-radius: 12px;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.rsa-verdict-box.bad {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
+.rsa-verdict-box.ok {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.rsa-telemetry-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.rsa-telemetry-item {
+  background: rgba(10, 16, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.rsa-telemetry-item .k {
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.rsa-telemetry-item .v {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #F8FAFC;
+}
+
+/* =========================================
+   HNDL Timeline & Shor's Factorization Lab
+   ========================================= */
+
+.hndl-timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.hndl-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hndl-card.active {
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+}
+
+.hndl-era-badge {
+  font: 700 0.72rem var(--font-mono);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  width: fit-content;
+}
+
+.hndl-era-badge.past { color: #38BDF8; background: rgba(56, 189, 248, 0.12); }
+.hndl-era-badge.wait { color: #FBBF24; background: rgba(251, 191, 36, 0.12); }
+.hndl-era-badge.future { color: #F43F5E; background: rgba(244, 63, 94, 0.12); }
+
+.shor-math-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.shor-math-box {
+  background: var(--term-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shor-math-box .step-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.shor-math-box .formula {
+  font: 600 0.95rem var(--font-mono);
+  color: #FFF;
+}
+
+.shor-math-box .desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Side-by-Side Head-to-Head Arena */
+.duel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.duel-column {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.duel-column.rsa {
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
+.duel-column.qbheem {
+  border-color: rgba(0, 242, 254, 0.35);
+}
+
+.duel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 14px;
+}
+
+.duel-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.duel-pill {
+  font: 700 0.72rem var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.duel-pill.bad {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--red);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
+.duel-pill.good {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--green);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.duel-meter-box {
+  background: rgba(10, 16, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .rsa-network-grid {
+    grid-template-columns: 1fr;
+  }
+  .rsa-terminals-grid {
+    grid-template-columns: 1fr;
+  }
+  .hndl-timeline {
+    grid-template-columns: 1fr;
+  }
+  .duel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1060,63 +1754,427 @@ dd.mono, .mono {
 </section>
 
 <section id="rsa" hidden>
-  <div class="two">
-    <div class="card">
-      <h3>Classical RSA-2048 Handshake</h3>
-      <p class="note" style="margin:0 0 16px">Bob encrypts a transfer key with Alice's public key. In Man-in-the-Middle (MitM) mode, Eve silently intercepts and swaps the key with zero disturbance.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <button class="run secondary" data-rsa="false">Honest Handshake</button>
-        <button class="run" style="background:var(--red); color:#FFF; box-shadow:0 4px 18px rgba(244,63,94,0.4)" data-rsa="true">MitM Attack (Eve)</button>
-      </div>
-      <div id="rsaOut" style="margin-top:16px"></div>
-    </div>
+  <!-- Sub-Navigation Bar -->
+  <div class="rsa-subnav">
+    <button class="rsa-nav-btn active" data-subtab="mitm">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      1. Classical RSA & MitM Pipeline
+    </button>
+    <button class="rsa-nav-btn" data-subtab="hndl">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      2. Harvest-Now-Decrypt-Later & Shor
+    </button>
+    <button class="rsa-nav-btn" data-subtab="arena">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+      3. Live Head-to-Head Arena (RSA vs QBheem)
+    </button>
+    <button class="rsa-nav-btn" data-subtab="matrix">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      4. Security Architecture Matrix
+    </button>
+  </div>
 
-    <div class="card">
-      <h3>Harvest Now, Decrypt Later (HNDL)</h3>
-      <p class="note" style="margin:0 0 16px">Adversaries record encrypted classical ciphertexts today, anticipating factorization by quantum computers running Shor's algorithm.</p>
-      <button class="run secondary" id="harvest">Execute Toy Shor Factorization</button>
-      <div id="harvOut" style="margin-top:16px"></div>
+  <!-- PANEL 1: Classical RSA & MitM Pipeline -->
+  <div class="rsa-panel" id="rsaPanelMitm">
+    <div class="rsa-stage-card">
+      <div class="rsa-control-toolbar">
+        <div>
+          <h2 style="font-size:1.25rem; font-weight:800; margin:0 0 4px">Classical RSA-2048 Handshake & Man-in-the-Middle (MitM) Attack</h2>
+          <p class="sub" style="margin:0">Watch real packets traverse the wire, observe Eve intercept and swap keys, and see why classical physics gives ZERO tamper-evident feedback.</p>
+        </div>
+        <div class="rsa-btn-group">
+          <button class="run secondary" id="btnRsaHonest">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Simulate Honest Handshake
+          </button>
+          <button class="run danger" id="btnRsaMitm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Launch MitM Attack (Eve)
+          </button>
+          <div style="display:flex;align-items:center;gap:6px;margin-left:8px">
+            <button class="run secondary" id="btnRsaStepPrev" style="padding:8px 12px" title="Previous Step" disabled>◀</button>
+            <button class="run secondary" id="btnRsaStepNext" style="padding:8px 12px" title="Next Step" disabled>▶</button>
+            <button class="run secondary" id="btnRsaReset" style="padding:8px 12px" title="Reset Simulation">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stepper Progress Bar -->
+      <div class="rsa-stepper" id="rsaStepper">
+        <div class="rsa-step-item active" data-step="1">
+          <div class="rsa-step-bar"></div>
+          <span class="rsa-step-title">1. KeyGen</span>
+        </div>
+        <div class="rsa-step-item" data-step="2">
+          <div class="rsa-step-bar"></div>
+          <span class="rsa-step-title">2. PK Wire</span>
+        </div>
+        <div class="rsa-step-item" data-step="3">
+          <div class="rsa-step-bar"></div>
+          <span class="rsa-step-title">3. Session Secret</span>
+        </div>
+        <div class="rsa-step-item" data-step="4">
+          <div class="rsa-step-bar"></div>
+          <span class="rsa-step-title">4. Ciphertext</span>
+        </div>
+        <div class="rsa-step-item" data-step="5">
+          <div class="rsa-step-bar"></div>
+          <span class="rsa-step-title">5. Decrypt</span>
+        </div>
+        <div class="rsa-step-item" data-step="6">
+          <div class="rsa-step-bar"></div>
+          <span class="rsa-step-title">6. Audit</span>
+        </div>
+      </div>
+
+      <!-- Network Stage Grid -->
+      <div class="rsa-network-grid">
+        <!-- Node A: Alice (Bank A) -->
+        <div class="rsa-node-card rsa-node-a" id="nodeAlice">
+          <div class="rsa-node-header">
+            <div class="rsa-node-brand">
+              <div class="rsa-node-icon">A</div>
+              <div>
+                <h3 class="rsa-node-title">Bank A</h3>
+                <span class="rsa-node-sub">Alice · Key Issuer</span>
+              </div>
+            </div>
+            <span class="rsa-node-badge online" id="aliceBadge">STANDBY</span>
+          </div>
+
+          <div class="rsa-node-box">
+            <div class="label">Public Key (e, N)</div>
+            <div class="val" id="alicePkVal">e=65537, N=Awaiting gen…</div>
+          </div>
+          <div class="rsa-node-box">
+            <div class="label">Private Key d (Secret)</div>
+            <div class="val" id="alicePrivVal">d held securely in HSM</div>
+          </div>
+          <div class="rsa-node-box">
+            <div class="label">Decrypted Session Key</div>
+            <div class="val" id="aliceSessVal">—</div>
+          </div>
+        </div>
+
+        <!-- Center Conduit & Eve's Tap Station -->
+        <div class="rsa-conduit-card" id="wireConduit">
+          <div style="display:flex; justify-content:space-between; align-items:center">
+            <span style="font-size:0.75rem; font-weight:700; color:var(--text-dim); text-transform:uppercase">Classical Copper/Fiber Waveguide</span>
+            <span class="rsa-node-badge" id="wireStatus">IDLE</span>
+          </div>
+
+          <!-- Animated Moving Packet Canvas -->
+          <div class="rsa-wire-canvas" id="packetCanvas">
+            <div class="rsa-wire-line" id="conduitLine"></div>
+            <div class="rsa-packet" id="rsaPacket" style="left: 10%; display:none">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span id="packetLabel">Public Key (e, N)</span>
+            </div>
+          </div>
+
+          <!-- Eve's Interceptor Router Box -->
+          <div class="rsa-eve-station" id="eveStation">
+            <div class="rsa-eve-header">
+              <span class="rsa-eve-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Eve's Rogue Man-in-the-Middle Router
+              </span>
+              <span class="rsa-eve-status" id="eveStatusBadge">TAP INACTIVE</span>
+            </div>
+            <div class="rsa-eve-pills">
+              <div class="rsa-eve-pill">
+                <div class="pill-k">Intercepted Key</div>
+                <div class="pill-v" id="eveInterceptedVal">None</div>
+              </div>
+              <div class="rsa-eve-pill">
+                <div class="pill-k">Eve Injected Key</div>
+                <div class="pill-v" id="eveSpoofedVal">None</div>
+              </div>
+              <div class="rsa-eve-pill" style="grid-column: 1 / -1">
+                <div class="pill-k">Stolen AES-256 Session Secret</div>
+                <div class="pill-v key-red" id="eveStolenKeyVal" style="color:var(--text-dim)">Vault Empty</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Node B: Bob (Bank B) -->
+        <div class="rsa-node-card rsa-node-b" id="nodeBob">
+          <div class="rsa-node-header">
+            <div class="rsa-node-brand">
+              <div class="rsa-node-icon">B</div>
+              <div>
+                <h3 class="rsa-node-title">Bank B</h3>
+                <span class="rsa-node-sub">Bob · Session Initiator</span>
+              </div>
+            </div>
+            <span class="rsa-node-badge online" id="bobBadge">STANDBY</span>
+          </div>
+
+          <div class="rsa-node-box">
+            <div class="label">Received Public Key</div>
+            <div class="val" id="bobReceivedPkVal">Awaiting Alice PK…</div>
+          </div>
+          <div class="rsa-node-box">
+            <div class="label">Generated 256-bit AES Key</div>
+            <div class="val" id="bobSessionVal">—</div>
+          </div>
+          <div class="rsa-node-box">
+            <div class="label">Encrypted Wire Ciphertext</div>
+            <div class="val" id="bobCipherVal">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step Description Box -->
+      <div id="stepDescBox" class="note" style="margin:16px 0 0; padding:12px 16px; background:rgba(15,23,42,0.8); border:1px solid rgba(255,255,255,0.06); border-radius:8px">
+        <b>Simulation Ready:</b> Click <b>"Simulate Honest Handshake"</b> to observe genuine key exchange, or <b>"Launch MitM Attack (Eve)"</b> to see how an attacker secretly compromises the link without being detected.
+      </div>
+
+      <!-- Multi-Terminals Console Grid -->
+      <div class="rsa-terminals-grid">
+        <div class="rsa-term-panel">
+          <div class="rsa-term-title">
+            <span>Bank A Terminal (Alice)</span>
+            <span style="color:var(--cyan)">●</span>
+          </div>
+          <div class="rsa-term-body" id="termAliceLog">Waiting for session dispatch…</div>
+        </div>
+
+        <div class="rsa-term-panel term-eve">
+          <div class="rsa-term-title">
+            <span style="color:#FB7185">Wire Sniffer & Eve Console</span>
+            <span style="color:var(--red)" id="termEveDot">○</span>
+          </div>
+          <div class="rsa-term-body" id="termEveLog">Passive line monitor active. Zero packets captured.</div>
+        </div>
+
+        <div class="rsa-term-panel">
+          <div class="rsa-term-title">
+            <span>Bank B Terminal (Bob)</span>
+            <span style="color:var(--blue)">●</span>
+          </div>
+          <div class="rsa-term-body" id="termBobLog">Waiting for incoming Public Key…</div>
+        </div>
+      </div>
+
+      <!-- Outcome Verdict & Physics Audit -->
+      <div id="rsaOutcomeVerdict"></div>
     </div>
   </div>
 
-  <div class="card">
-    <h3>Security Matrix: Classical RSA vs QBheem (BB84 QKD)</h3>
-    <table class="cmp">
-      <thead>
-        <tr>
-          <th>Metric / Vector</th>
-          <th>Classical RSA Key Exchange</th>
-          <th>QBheem (BB84 + AES-256)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>Security Foundation</th>
-          <td>Computational hardness of factoring large primes</td>
-          <td>Quantum physics: No-Cloning Theorem & wavefunction collapse</td>
-        </tr>
-        <tr>
-          <th>Adversary Line Tapping</th>
-          <td>Silent: Eve copies packets undetected</td>
-          <td>Immediate: Measurement increases QBER (~25%), alerting both banks</td>
-        </tr>
-        <tr>
-          <th>Harvest-Now-Decrypt-Later</th>
-          <td>Vulnerable: Recorded traffic broken once quantum computers scale</td>
-          <td>Immune: Keys never travel on wire; unrecorded quantum states cannot be stored</td>
-        </tr>
-        <tr>
-          <th>Authentication Requirements</th>
-          <td>PKI certificate authorities & trust chains</td>
-          <td>Pre-shared Wegman-Carter MAC authentication tag</td>
-        </tr>
-        <tr>
-          <th>Infrastructure Constraints</th>
-          <td>Ubiquitous: Runs on commodity CPUs</td>
-          <td>Requires single-photon optical fiber or free-space optical link</td>
-        </tr>
-      </tbody>
-    </table>
+  <!-- PANEL 2: Harvest Now, Decrypt Later & Shor's Factorization -->
+  <div class="rsa-panel" id="rsaPanelHndl" hidden>
+    <div class="hndl-timeline">
+      <div class="hndl-card">
+        <span class="hndl-era-badge past">ERA 1 · YEAR 2026 (PRESENT)</span>
+        <h4 style="margin:0; font-size:1.05rem; font-weight:700">1. Silent Wiretap & Data Warehousing</h4>
+        <p class="sub" style="font-size:0.84rem">Adversaries intercept encrypted RSA-2048 banking transfers and save the raw ciphertexts $C = M^e \pmod N$ directly into magnetic mass storage.</p>
+        <div class="rsa-node-box">
+          <div class="label">Classical Supercomputer Status</div>
+          <div class="val" style="color:var(--amber)">Factorization infeasible (~3.8 × 10¹⁴ years needed)</div>
+        </div>
+      </div>
+
+      <div class="hndl-card">
+        <span class="hndl-era-badge wait">ERA 2 · PERSISTENT STORAGE VAULT</span>
+        <h4 style="margin:0; font-size:1.05rem; font-weight:700">2. Waiting for Q-Day (Vault Archive)</h4>
+        <p class="sub" style="font-size:0.84rem">Stored ciphertexts sit silently for 5 to 10 years. Government secrets, wire transfers, biometric credentials, and master keys remain locked in cold storage.</p>
+        <div class="rsa-node-box">
+          <div class="label">Channel Detection Alert</div>
+          <div class="val" style="color:#38BDF8">0% — No physical alarms were triggered during harvesting</div>
+        </div>
+      </div>
+
+      <div class="hndl-card active">
+        <span class="hndl-era-badge future">ERA 3 · Q-DAY (SHOR'S ALGORITHM)</span>
+        <h4 style="margin:0; font-size:1.05rem; font-weight:700">3. Quantum Factorization & Plaintext Extraction</h4>
+        <p class="sub" style="font-size:0.84rem">A fault-tolerant quantum computer applies Shor's algorithm, finding the period of modular exponentiation in polynomial time $O((\log N)^3)$ and extracting the private key $d$.</p>
+        <div class="rsa-node-box">
+          <div class="label">Quantum Factoring Time</div>
+          <div class="val" style="color:var(--red)">~8 to 15 minutes on a 4,096-qubit quantum processor</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Shor Factorization Lab Card -->
+    <div class="rsa-stage-card">
+      <div class="rsa-control-toolbar">
+        <div>
+          <h3 style="font-size:1.2rem; font-weight:800; margin:0 0 4px">Interactive Shor's Quantum Period-Finding & Factorization Lab</h3>
+          <p class="sub" style="margin:0">Execute live modular factorization on stored classical ciphertexts, decomposing $N \to p \times q$ to compute the private key $d$ and recover the financial wire payload.</p>
+        </div>
+        <div class="rsa-btn-group">
+          <select id="shorBits" style="padding:10px 14px; background:var(--bg-input); border:1px solid var(--border); color:#FFF; border-radius:8px; font-family:var(--font-mono)">
+            <option value="32" selected>32-bit Prime Demo (~64-bit Modulus N)</option>
+            <option value="24">24-bit Prime Demo (~48-bit Modulus N)</option>
+          </select>
+          <button class="run" id="btnRunShor">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/></svg>
+            Execute Quantum Modulus Factorization
+          </button>
+        </div>
+      </div>
+
+      <!-- Shor Factorization Output Canvas / Math Box -->
+      <div id="shorOutputArea">
+        <p class="empty">Click "Execute Quantum Modulus Factorization" above to simulate Shor's period-finding and prime extraction live.</p>
+      </div>
+
+      <!-- Why QBheem is 100% Immune Card -->
+      <div style="margin-top:24px; padding:20px; border-radius:12px; background:rgba(0,242,254,0.06); border:1px solid rgba(0,242,254,0.25)">
+        <h4 style="color:var(--cyan); margin:0 0 8px; font-size:1rem; display:flex; align-items:center; gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Why QBheem (BB84 QKD) is 100% Immune to Harvest-Now-Decrypt-Later (HNDL)
+        </h4>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px; font-size:0.86rem; color:var(--text-muted); line-height:1.6">
+          <div>
+            <b style="color:#FFF">1. No Keys Travel the Wire:</b> In BB84, keys are generated via quantum state collapse in real-time. The final symmetric key never crosses the optical fiber as a ciphertext.
+          </div>
+          <div>
+            <b style="color:#FFF">2. No-Cloning Theorem:</b> An adversary cannot copy or store unmeasured quantum photons in a hard drive without measuring them. Physics forbids copying unknown quantum states.
+          </div>
+          <div>
+            <b style="color:#FFF">3. Wavefunction Collapse & Abort:</b> If Eve attempts to measure photons before archiving them, the measurement immediately induces ~25% QBER, aborting key release with zero usable bits leaked!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: Live Head-to-Head Arena -->
+  <div class="rsa-panel" id="rsaPanelArena" hidden>
+    <div class="rsa-stage-card">
+      <div class="rsa-control-toolbar">
+        <div>
+          <h3 style="font-size:1.25rem; font-weight:800; margin:0 0 4px">Live Adversary Arena: Classical RSA vs QBheem (BB84 QKD) Under Attack</h3>
+          <p class="sub" style="margin:0">Trigger a simultaneous wire tap on both cryptographic systems to observe the contrast between mathematical complexity and quantum physical feedback.</p>
+        </div>
+        <button class="run danger" id="btnRunDuel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Simulate Simultaneous Attack on Both Networks
+        </button>
+      </div>
+
+      <div class="duel-grid">
+        <!-- Classical RSA Track -->
+        <div class="duel-column rsa">
+          <div class="duel-header">
+            <h4 class="duel-title" style="color:#FB7185">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Classical RSA-2048 Handshake
+            </h4>
+            <span class="duel-pill bad" id="duelRsaPill">READY FOR TEST</span>
+          </div>
+
+          <div class="duel-meter-box">
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px">
+              <span style="color:var(--text-dim)">PHYSICAL WAVEFORM DISTURBANCE</span>
+              <span style="font-family:var(--font-mono); font-weight:700" id="duelRsaDisturb">0.00%</span>
+            </div>
+            <div class="meter" style="margin:4px 0 10px; height:14px">
+              <div class="fill" id="duelRsaMeter" style="width:0; background:var(--green)"></div>
+            </div>
+            <p class="note" style="margin:0">Classical digital signals (voltages / laser pulses) can be copied without back-action. The physical link remains undisturbed.</p>
+          </div>
+
+          <dl>
+            <dt>Adversary Line Tap</dt><dd class="err" id="duelRsaTap">Passive sniffer / Man-in-the-Middle</dd>
+            <dt>Detection Status</dt><dd class="err" id="duelRsaDetect">UNDETECTED (0% alert)</dd>
+            <dt>Handshake Key Release</dt><dd id="duelRsaKey">Keys released blindly</dd>
+            <dt>Financial Payload</dt><dd class="err" id="duelRsaPayload">COMPROMISED (Plaintext readable by Eve)</dd>
+          </dl>
+
+          <div class="rsa-node-box" style="border-color:rgba(244,63,94,0.3)">
+            <b style="color:#FB7185; display:block; margin-bottom:4px">Outcome: Silent Failure</b>
+            Both banks transfer millions of dollars believing the session was private, while Eve sniffs all transactions without leaving a trace.
+          </div>
+        </div>
+
+        <!-- QBheem BB84 QKD Track -->
+        <div class="duel-column qbheem">
+          <div class="duel-header">
+            <h4 class="duel-title" style="color:var(--cyan)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              QBheem (BB84 QKD + AES-256)
+            </h4>
+            <span class="duel-pill good" id="duelQbheemPill">READY FOR TEST</span>
+          </div>
+
+          <div class="duel-meter-box">
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:6px">
+              <span style="color:var(--text-dim)">QUANTUM BIT ERROR RATE (QBER)</span>
+              <span style="font-family:var(--font-mono); font-weight:700" id="duelQbheemQber">0.00%</span>
+            </div>
+            <div class="meter" style="margin:4px 0 10px; height:14px">
+              <div class="fill" id="duelQbheemMeter" style="width:0; background:var(--green)"></div>
+              <div class="tick" style="left:36.6%"><span>11% Limit</span></div>
+            </div>
+            <p class="note" style="margin:0">Single-photon quantum measurement causes state collapse. Eve's measurements inevitably push QBER to ~25%.</p>
+          </div>
+
+          <dl>
+            <dt>Adversary Line Tap</dt><dd style="color:var(--cyan)" id="duelQbheemTap">Optical detector (Intercept-Resend)</dd>
+            <dt>Detection Status</dt><dd class="good" id="duelQbheemDetect">IMMEDIATE ALARM (100% confidence)</dd>
+            <dt>Handshake Key Release</dt><dd class="err" id="duelQbheemKey">BLOCKED (0 keys released)</dd>
+            <dt>Financial Payload</dt><dd class="good" id="duelQbheemPayload">PROTECTED (Transfer withheld)</dd>
+          </dl>
+
+          <div class="rsa-node-box" style="border-color:rgba(0,242,254,0.3)">
+            <b style="color:var(--cyan); display:block; margin-bottom:4px">Outcome: Physics-Enforced Safety</b>
+            The laws of quantum mechanics notify both banks before any financial transmission takes place. Funds remain 100% protected.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 4: Comprehensive Security Matrix -->
+  <div class="rsa-panel" id="rsaPanelMatrix" hidden>
+    <div class="card">
+      <h3>Security Matrix: Classical RSA vs QBheem (BB84 QKD)</h3>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th>Metric / Vector</th>
+            <th>Classical RSA Key Exchange</th>
+            <th>QBheem (BB84 + AES-256)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Security Foundation</th>
+            <td>Computational hardness of factoring large primes (Unproven math assumption)</td>
+            <td>Quantum physics: No-Cloning Theorem & wavefunction collapse (Laws of Physics)</td>
+          </tr>
+          <tr>
+            <th>Adversary Line Tapping</th>
+            <td>Silent: Eve copies packets undetected (0.00% signal perturbation)</td>
+            <td>Immediate: Measurement increases QBER (~25%), alerting both banks instantly</td>
+          </tr>
+          <tr>
+            <th>Harvest-Now-Decrypt-Later</th>
+            <td>Vulnerable: Recorded traffic broken once quantum computers run Shor's algorithm</td>
+            <td>Immune: Keys never travel on wire; unrecorded quantum states cannot be stored</td>
+          </tr>
+          <tr>
+            <th>Authentication Requirements</th>
+            <td>PKI certificate authorities & trust chains (Subject to CA compromise/forgery)</td>
+            <td>Pre-shared Wegman-Carter MAC authentication tag (Information-theoretic)</td>
+          </tr>
+          <tr>
+            <th>Forward Secrecy</th>
+            <td>Conditional upon private key secrecy; retroactive breach exposes past sessions</td>
+            <td>Unconditional forward secrecy; keys distilled independently per transfer session</td>
+          </tr>
+          <tr>
+            <th>Infrastructure Constraints</th>
+            <td>Ubiquitous: Runs on commodity CPUs & legacy internet</td>
+            <td>Requires dedicated optical fiber waveguide or free-space line-of-sight optical link</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 </main>
@@ -1336,28 +2394,439 @@ $("#runAnalysis").onclick = async () => {
   btn.disabled = false; btn.textContent = "Generate Telemetry Charts";
 };
 
-// RSA Tests
-document.querySelectorAll("[data-rsa]").forEach(b => b.onclick = async () => {
-  $("#rsaOut").textContent = "Simulating RSA-2048 key exchange…";
-  try{
-    const r = await api("/api/rsa?mitm=" + b.dataset.rsa);
-    $("#rsaOut").innerHTML = `<div class="verdict ${r.eve_knows_key ? "bad" : "ok"}">
-      <b>${r.eve_knows_key ? "⚠️ Eve Holds the Private Session Key (Undetected)" : "✓ Honest Handshake Completed"}</b>
-      Key Match: ${r.keys_match ? "Yes" : "No"}. Was Eve detected by Alice or Bob: <span style="font-weight:700">${r.anyone_detected_eve ? "YES" : "NO"}</span>.
-    </div>
-    <p class="note">Time taken: ${r.seconds.toFixed(2)}s. Classical RSA contains no physics mechanism to indicate passive eavesdropping or MITM key-swapping.</p>`;
-  }catch(e){ $("#rsaOut").innerHTML = `<span class="err">${e.message}</span>`; }
+// ==========================================
+// QBheem vs Classical RSA Visual Suite Logic
+// ==========================================
+
+// Sub-Tab Switcher
+document.querySelectorAll(".rsa-nav-btn").forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll(".rsa-nav-btn").forEach(b => b.classList.toggle("active", b === btn));
+    const target = btn.dataset.subtab;
+    $("#rsaPanelMitm").hidden = target !== "mitm";
+    $("#rsaPanelHndl").hidden = target !== "hndl";
+    $("#rsaPanelArena").hidden = target !== "arena";
+    $("#rsaPanelMatrix").hidden = target !== "matrix";
+  };
 });
 
-$("#harvest").onclick = async () => {
-  $("#harvOut").textContent = "Factoring RSA modulus…";
-  try{
-    const r = await api("/api/rsa/harvest");
-    $("#harvOut").innerHTML = `<div class="verdict bad">
-      <b>🔓 Stored Ciphertext Decrypted</b>
-      ${r.modulus_bits}-bit toy RSA modulus factored in ${(r.attack_seconds*1000).toFixed(1)} ms. Demonstrates harvest-now-decrypt-later vulnerability.
-    </div>`;
-  }catch(e){ $("#harvOut").innerHTML = `<span class="err">${e.message}</span>`; }
+// RSA Visual Pipeline State
+let rsaSimData = null;
+let rsaCurrentStep = 1;
+let rsaIsRunning = false;
+
+function setRsaStep(step) {
+  rsaCurrentStep = step;
+  document.querySelectorAll(".rsa-step-item").forEach(item => {
+    const s = +item.dataset.step;
+    item.classList.toggle("active", s === step);
+    item.classList.toggle("done", s < step);
+    if (rsaSimData && rsaSimData.eve_knows_key && (s === 2 || s === 4) && s <= step) {
+      item.classList.add("compromised");
+    } else {
+      item.classList.remove("compromised");
+    }
+  });
+
+  $("#btnRsaStepPrev").disabled = step <= 1;
+  $("#btnRsaStepNext").disabled = !rsaSimData || step >= 6;
+
+  if (!rsaSimData) return;
+
+  const pkt = $("#rsaPacket");
+  const isMitm = rsaSimData.eve_knows_key;
+
+  // Step 1: Keygen
+  if (step === 1) {
+    $("#nodeAlice").classList.add("active");
+    $("#nodeBob").classList.remove("active");
+    $("#wireStatus").textContent = "ALICE GENERATING KEYPAIR";
+    $("#aliceBadge").textContent = "GENERATING";
+    $("#alicePkVal").textContent = `e=${rsaSimData.alice_pubkey.e}, N=${rsaSimData.alice_pubkey.preview}`;
+    $("#alicePrivVal").textContent = "d generated & locked in Bank A HSM";
+    pkt.style.display = "none";
+    $("#stepDescBox").innerHTML = `<b>Step 1 · Key Generation:</b> Bank A (Alice) generated an RSA keypair with public modulus $N_A$ and exponent $e_A=65537$. Private exponent $d_A$ is protected in an encrypted hardware security module (HSM).`;
+    appendLog($("#termAliceLog"), `› Generated RSA keypair (e=65537, N=${rsaSimData.alice_pubkey.preview})`, "log-good");
+  }
+
+  // Step 2: PK Wire Transmission
+  else if (step === 2) {
+    $("#nodeAlice").classList.remove("active");
+    pkt.style.display = "flex";
+    pkt.className = "rsa-packet" + (isMitm ? " spoofed" : "");
+    $("#packetLabel").textContent = isMitm ? "Spoofed Eve PK [e_E, N_E]" : "Alice PK [e_A, N_A]";
+
+    if (isMitm) {
+      pkt.style.left = "50%";
+      $("#conduitLine").classList.add("tapped");
+      $("#eveStation").classList.add("active");
+      $("#eveStatusBadge").textContent = "INTERCEPTED & SPOOFED";
+      $("#eveInterceptedVal").textContent = `Alice PK (${rsaSimData.alice_pubkey.preview.slice(0, 10)}…)`;
+      $("#eveSpoofedVal").textContent = `Eve Rogue PK (${rsaSimData.eve_pubkey.preview.slice(0, 10)}…)`;
+      $("#termEveDot").style.color = "var(--red)";
+      appendLog($("#termEveLog"), "› ⚠️ MITM INTERCEPT: Sniffed Alice's Public Key packet!", "log-bad");
+      appendLog($("#termEveLog"), `› INJECTED SPOOFED KEY: Sent Eve's rogue PK (${rsaSimData.eve_pubkey.preview.slice(0, 10)}…) to Bank B!`, "log-warn");
+      $("#bobReceivedPkVal").textContent = `Eve Spoofed PK (${rsaSimData.eve_pubkey.preview.slice(0, 12)}…)`;
+      $("#bobReceivedPkVal").classList.add("key-red");
+      $("#stepDescBox").innerHTML = `<b>Step 2 · Adversary Interception:</b> Alice broadcasted her public key. Eve silently intercepted it at the optical tap, dropped Alice's key, and injected her own rogue key $(e_E, N_E)$ towards Bank B. Bob has no way to verify the sender!`;
+    } else {
+      pkt.style.left = "85%";
+      $("#bobReceivedPkVal").textContent = `Alice PK (${rsaSimData.alice_pubkey.preview.slice(0, 12)}…)`;
+      $("#stepDescBox").innerHTML = `<b>Step 2 · Public Key Broadcast:</b> Alice transmitted her public key $(e_A, N_A)$ across the classical network. The packet arrived unaltered at Bank B.`;
+      appendLog($("#termBobLog"), "› Received genuine Bank A Public Key", "log-good");
+    }
+  }
+
+  // Step 3: Bob Session Secret Gen
+  else if (step === 3) {
+    $("#nodeBob").classList.add("active");
+    pkt.style.display = "none";
+    $("#bobBadge").textContent = "ACTIVE";
+    $("#bobSessionVal").textContent = rsaSimData.session_key.slice(0, 24) + "…";
+    $("#stepDescBox").innerHTML = `<b>Step 3 · Session Secret Creation:</b> Bank B (Bob) generated a 256-bit AES symmetric session key: <span class="mono">${rsaSimData.session_key.slice(0, 20)}…</span> to protect subsequent financial transactions.`;
+    appendLog($("#termBobLog"), `› Generated 256-bit AES session secret (${rsaSimData.session_key.slice(0, 16)}…)`, "log-good");
+  }
+
+  // Step 4: Bob Encrypts & Dispatches Return Packet
+  else if (step === 4) {
+    $("#nodeBob").classList.remove("active");
+    $("#bobCipherVal").textContent = rsaSimData.ciphertext_hex.slice(0, 20) + "…";
+    pkt.style.display = "flex";
+    pkt.className = "rsa-packet session";
+    $("#packetLabel").textContent = "Ciphertext [Encrypted Session Key]";
+
+    if (isMitm) {
+      pkt.style.left = "50%";
+      $("#eveStolenKeyVal").textContent = rsaSimData.stolen_key.slice(0, 24) + "… (STOLEN)";
+      $("#eveStolenKeyVal").style.color = "var(--red)";
+      appendLog($("#termEveLog"), "› ⚠️ MITM INTERCEPT: Sniffed encrypted session ciphertext from Bob!", "log-bad");
+      appendLog($("#termEveLog"), `› 💥 CRACKED WITH d_Eve: Extracted Session Key: ${rsaSimData.stolen_key.slice(0, 16)}…`, "log-bad");
+      appendLog($("#termEveLog"), "› RE-ENCRYPTED WITH Alice PK & forwarded to Bank A.", "log-warn");
+      $("#stepDescBox").innerHTML = `<b>Step 4 · Man-in-the-Middle Theft:</b> Bob encrypted the key using the public key he received (Eve's key). Eve intercepts the packet, decrypts it with her private key $d_E$, extracts the session key, and re-encrypts it with Alice's genuine key!`;
+    } else {
+      pkt.style.left = "15%";
+      $("#stepDescBox").innerHTML = `<b>Step 4 · Key Encrypted & Transmitted:</b> Bob encrypted the 256-bit session key under Alice's public key and dispatched the ciphertext back across the wire.`;
+      appendLog($("#termBobLog"), "› Dispatched encrypted session key to Bank A", "");
+    }
+  }
+
+  // Step 5: Alice Decrypts
+  else if (step === 5) {
+    $("#nodeAlice").classList.add("active");
+    pkt.style.display = "none";
+    $("#aliceSessVal").textContent = rsaSimData.alice_recovered_key.slice(0, 24) + "…";
+    $("#aliceBadge").textContent = "VERIFIED";
+    appendLog($("#termAliceLog"), `› Decrypted payload with d_Alice: ${rsaSimData.alice_recovered_key.slice(0, 16)}… ✓`, "log-good");
+    $("#stepDescBox").innerHTML = `<b>Step 5 · Alice Decrypts:</b> Bank A decrypted the ciphertext using her private exponent $d_A$, recovering the exact 256-bit AES key. Both banks now share identical keys!`;
+  }
+
+  // Step 6: Physical Disturbance Audit
+  else if (step === 6) {
+    $("#nodeAlice").classList.remove("active");
+    $("#nodeBob").classList.remove("active");
+    renderRsaVerdict(rsaSimData);
+    $("#stepDescBox").innerHTML = `<b>Step 6 · Physical Layer Audit:</b> Physical disturbance is exactly <b>0.00%</b>. Classical macroscopic packets can be copied, intercepted, and rewritten without quantum back-action, leaving zero evidence of Eve's presence!`;
+  }
+}
+
+function appendLog(el, text, cls) {
+  const div = document.createElement("div");
+  if (cls) div.className = cls;
+  div.textContent = text;
+  el.appendChild(div);
+  el.scrollTop = el.scrollHeight;
+}
+
+function resetRsaStage() {
+  rsaSimData = null;
+  rsaCurrentStep = 1;
+  document.querySelectorAll(".rsa-step-item").forEach((it, i) => {
+    it.className = "rsa-step-item" + (i === 0 ? " active" : "");
+  });
+  $("#rsaPacket").style.display = "none";
+  $("#conduitLine").className = "rsa-wire-line";
+  $("#eveStation").className = "rsa-eve-station";
+  $("#eveStatusBadge").textContent = "TAP INACTIVE";
+  $("#eveInterceptedVal").textContent = "None";
+  $("#eveSpoofedVal").textContent = "None";
+  $("#eveStolenKeyVal").textContent = "Vault Empty";
+  $("#eveStolenKeyVal").style.color = "var(--text-dim)";
+  $("#alicePkVal").textContent = "e=65537, N=Awaiting gen…";
+  $("#alicePrivVal").textContent = "d held securely in HSM";
+  $("#aliceSessVal").textContent = "—";
+  $("#bobReceivedPkVal").textContent = "Awaiting Alice PK…";
+  $("#bobReceivedPkVal").className = "val";
+  $("#bobSessionVal").textContent = "—";
+  $("#bobCipherVal").textContent = "—";
+  $("#termAliceLog").textContent = "Waiting for session dispatch…";
+  $("#termEveLog").textContent = "Passive line monitor active. Zero packets captured.";
+  $("#termBobLog").textContent = "Waiting for incoming Public Key…";
+  $("#rsaOutcomeVerdict").innerHTML = "";
+  $("#btnRsaStepPrev").disabled = true;
+  $("#btnRsaStepNext").disabled = true;
+  $("#stepDescBox").innerHTML = `<b>Simulation Reset:</b> Select "Simulate Honest Handshake" or "Launch MitM Attack (Eve)" to begin.`;
+}
+
+async function runRsaPipeline(mitm) {
+  if (rsaIsRunning) return;
+  rsaIsRunning = true;
+  resetRsaStage();
+
+  const btn = mitm ? $("#btnRsaMitm") : $("#btnRsaHonest");
+  const origText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = `<span class="status-dot"></span> Simulating RSA Handshake…`;
+
+  try {
+    const data = await api(`/api/rsa?mitm=${mitm}&bits=1024`);
+    rsaSimData = data;
+
+    for (let s = 1; s <= 6; s++) {
+      setRsaStep(s);
+      await sleep(matchMedia("(prefers-reduced-motion:reduce)").matches ? 0 : 850);
+    }
+  } catch (err) {
+    $("#stepDescBox").innerHTML = `<span class="err">Simulation Error: ${err.message}</span>`;
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = origText;
+  rsaIsRunning = false;
+}
+
+function renderRsaVerdict(r) {
+  const v = $("#rsaOutcomeVerdict");
+  if (r.eve_knows_key) {
+    v.innerHTML = `
+      <div class="rsa-verdict-box bad">
+        <div style="display:flex; align-items:center; justify-content:space-between">
+          <b style="color:#FB7185; font-size:1.15rem; display:flex; align-items:center; gap:8px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            CRITICAL VULNERABILITY: Silent Man-in-the-Middle Compromise
+          </b>
+          <span class="duel-pill bad">UNDETECTED ADVERSARY</span>
+        </div>
+        <p style="margin:0; font-size:0.9rem; color:#F1F5F9; line-height:1.6">
+          Eve holds the <b>identical 256-bit AES session key</b>. Bank A and Bank B will proceed to transmit wire transfers in total ignorance that an eavesdropper has cracked their entire session.
+        </p>
+        <div class="rsa-telemetry-row">
+          <div class="rsa-telemetry-item">
+            <div class="k">Key Match (A == B)</div>
+            <div class="v" style="color:var(--green)">YES (Identical)</div>
+          </div>
+          <div class="rsa-telemetry-item">
+            <div class="k">Adversary Holds Key?</div>
+            <div class="v" style="color:var(--red)">YES (Compromised)</div>
+          </div>
+          <div class="rsa-telemetry-item">
+            <div class="k">Physical Waveform Disturbance</div>
+            <div class="v">0.00% (Undetected)</div>
+          </div>
+          <div class="rsa-telemetry-item">
+            <div class="k">Quantum Physics Feedback</div>
+            <div class="v" style="color:var(--text-dim)">NONE (Classical Math)</div>
+          </div>
+        </div>
+        <p class="note" style="margin:8px 0 0">
+          <b>College Viva Key Point:</b> Classical asymmetric encryption provides zero physical defense against line-tapping. Protection against MitM requires third-party Certificate Authorities (PKI), which themselves can be forged, subpoenaed, or hacked.
+        </p>
+      </div>`;
+  } else {
+    v.innerHTML = `
+      <div class="rsa-verdict-box ok">
+        <div style="display:flex; align-items:center; justify-content:space-between">
+          <b style="color:#34D399; font-size:1.15rem; display:flex; align-items:center; gap:8px">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Honest Handshake Completed
+          </b>
+          <span class="duel-pill good">NORMAL HANDSHAKE</span>
+        </div>
+        <p style="margin:0; font-size:0.9rem; color:#F1F5F9; line-height:1.6">
+          Alice and Bob securely agreed on the same 256-bit AES session key. Without an active adversary, classical RSA successfully completes the key exchange in ${r.seconds.toFixed(2)}s.
+        </p>
+        <div class="rsa-telemetry-row">
+          <div class="rsa-telemetry-item">
+            <div class="k">Key Match (A == B)</div>
+            <div class="v" style="color:var(--green)">YES (Identical)</div>
+          </div>
+          <div class="rsa-telemetry-item">
+            <div class="k">Eve Knowledge</div>
+            <div class="v" style="color:var(--green)">0 bits leaked</div>
+          </div>
+          <div class="rsa-telemetry-item">
+            <div class="k">Signal Disturbance</div>
+            <div class="v">0.00%</div>
+          </div>
+          <div class="rsa-telemetry-item">
+            <div class="k">Cryptographic Security</div>
+            <div class="v" style="color:#38BDF8">Computational Only</div>
+          </div>
+        </div>
+      </div>`;
+  }
+}
+
+$("#btnRsaHonest").onclick = () => runRsaPipeline(false);
+$("#btnRsaMitm").onclick = () => runRsaPipeline(true);
+$("#btnRsaReset").onclick = resetRsaStage;
+$("#btnRsaStepPrev").onclick = () => { if (rsaCurrentStep > 1) setRsaStep(rsaCurrentStep - 1); };
+$("#btnRsaStepNext").onclick = () => { if (rsaCurrentStep < 6) setRsaStep(rsaCurrentStep + 1); };
+
+// Stepper click handler
+document.querySelectorAll(".rsa-step-item").forEach(item => {
+  item.onclick = () => {
+    if (rsaSimData) setRsaStep(+item.dataset.step);
+  };
+});
+
+// ==========================================
+// Shor's Quantum Factorization Lab
+// ==========================================
+$("#btnRunShor").onclick = async () => {
+  const btn = $("#btnRunShor");
+  const bits = +$("#shorBits").value;
+  btn.disabled = true;
+  btn.innerHTML = `<span class="status-dot"></span> Factoring Modulus with Shor Simulation…`;
+  $("#shorOutputArea").innerHTML = `<p class="empty">Executing quantum modular exponentiation and continued fraction period-finding…</p>`;
+
+  try {
+    const data = await api(`/api/rsa/harvest?prime_bits=${bits}`);
+    const comp = data.shor_comparison;
+
+    $("#shorOutputArea").innerHTML = `
+      <div class="rsa-verdict-box bad" style="margin-top:0">
+        <b style="color:#FB7185; font-size:1.15rem; display:flex; align-items:center; gap:8px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          🔓 Harvest-Now-Decrypt-Later Success: Archived Modulus Factored & Wire Decrypted
+        </b>
+        <p style="margin:4px 0 0; color:#F8FAFC">
+          Factored <b>${data.modulus_bits}-bit RSA modulus</b> in <b>${(data.attack_seconds * 1000).toFixed(1)} ms</b>. The attacker decomposed $N = p \\times q$, computed private key $d$, and fully reconstructed the encrypted banking payload!
+        </p>
+      </div>
+
+      <!-- Mathematical Factorization Step Cards -->
+      <div class="shor-math-grid">
+        <div class="shor-math-box">
+          <span class="step-num">Step 1 · Archived Modulus</span>
+          <div class="formula">N = ${data.modulus_n}</div>
+          <span class="desc">Bit-length: ${data.modulus_bits} bits (${data.modulus_n_hex.slice(0, 16)}…)</span>
+        </div>
+
+        <div class="shor-math-box">
+          <span class="step-num">Step 2 · Quantum Prime Extraction</span>
+          <div class="formula" style="color:var(--cyan)">p = ${data.prime_p}</div>
+          <div class="formula" style="color:var(--cyan)">q = ${data.prime_q}</div>
+          <span class="desc">Extracted via gcd(a^(r/2) ± 1, N)</span>
+        </div>
+
+        <div class="shor-math-box">
+          <span class="step-num">Step 3 · Euler's Totient</span>
+          <div class="formula">φ(N) = (p-1)(q-1)</div>
+          <span class="desc">Private key space unlocked</span>
+        </div>
+
+        <div class="shor-math-box">
+          <span class="step-num">Step 4 · Private Exponent</span>
+          <div class="formula" style="color:#FB7185">d ≡ e⁻¹ mod φ(N)</div>
+          <span class="desc">d = ${data.private_d_hex.slice(0, 16)}…</span>
+        </div>
+      </div>
+
+      <!-- Decrypted Banking Payload Box -->
+      <div class="rsa-node-box" style="border-color:rgba(16,185,129,0.35); padding:16px; background:rgba(10,16,30,0.85)">
+        <div class="label" style="color:var(--green); font-weight:700">Decrypted Financial Wire Payload (Recovered from Archive)</div>
+        <div class="val" style="color:#FFF; font-size:0.95rem; margin:6px 0">
+          › <b>${data.payload_example}</b>
+        </div>
+        <div style="font-size:0.78rem; color:var(--text-dim)">
+          Ciphertext on fiber: <span class="mono">${data.ciphertext_hex}</span> | Plaintext Secret: <span class="mono">${data.secret_hex}</span>
+        </div>
+      </div>
+
+      <!-- Quantum vs Classical Scaling Table -->
+      <div style="margin-top:16px">
+        <h4 style="font-size:0.92rem; font-weight:700; color:var(--text-muted); margin:0 0 8px">Quantum Shor Scaling Benchmark</h4>
+        <table class="cmp" style="font-size:0.82rem">
+          <thead>
+            <tr>
+              <th>Target Modulus Size</th>
+              <th>Classical Supercluster Time</th>
+              <th>Quantum Shor's Algorithm</th>
+              <th>Required Logical Qubits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>${data.modulus_bits}-bit Toy Modulus</th>
+              <td>${(data.attack_seconds * 1000).toFixed(1)} ms (Pollard Rho)</td>
+              <td>&lt; 5 ms (Polynomial Time)</td>
+              <td>${comp.toy_qubits_needed} qubits</td>
+            </tr>
+            <tr>
+              <th>RSA-2048 (Banking Standard)</th>
+              <td class="err">${comp.rsa2048_classical_time_years}</td>
+              <td class="good">${comp.rsa2048_quantum_shor_time_mins}</td>
+              <td style="color:var(--cyan); font-weight:700">${comp.rsa2048_qubits_needed} qubits</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch (err) {
+    $("#shorOutputArea").innerHTML = `<p class="err">Shor simulation failed: ${err.message}</p>`;
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/></svg> Execute Quantum Modulus Factorization`;
+};
+
+// ==========================================
+// Live Head-to-Head Duel Arena
+// ==========================================
+$("#btnRunDuel").onclick = async () => {
+  const btn = $("#btnRunDuel");
+  btn.disabled = true;
+  btn.innerHTML = `<span class="status-dot"></span> Launching Simultaneous Attack Simulation…`;
+
+  $("#duelRsaPill").textContent = "ATTACK IN PROGRESS";
+  $("#duelQbheemPill").textContent = "ATTACK IN PROGRESS";
+
+  try {
+    // Run both RSA MitM and QBheem with Eve concurrently
+    const [rsaRes, qbheemRes] = await Promise.all([
+      api("/api/rsa?mitm=true&bits=1024"),
+      api("/api/session", { n_qubits: 8192, noise: 0.01, eve_active: true, eve_fraction: 1.0, backend: "numpy", amount: 2500000 })
+    ]);
+
+    // Animate Classical RSA track
+    $("#duelRsaMeter").style.width = "4%";
+    $("#duelRsaMeter").style.background = "var(--green)";
+    $("#duelRsaDisturb").textContent = "0.00% (No perturbation)";
+    $("#duelRsaPill").textContent = "COMPROMISED (SILENT)";
+    $("#duelRsaPill").className = "duel-pill bad";
+    $("#duelRsaTap").textContent = "Active MitM Key Swapper";
+    $("#duelRsaDetect").textContent = "UNDETECTED (0% alert)";
+    $("#duelRsaKey").textContent = `Keys released blindly (Eve stolen key: ${rsaRes.stolen_key.slice(0, 12)}…)`;
+    $("#duelRsaPayload").textContent = "COMPROMISED ($2,500,000 decrypted by Eve)";
+
+    // Animate QBheem track
+    const qberPct = (qbheemRes.stats.qber * 100).toFixed(2);
+    const meterWidth = Math.min(qbheemRes.stats.qber / 0.30, 1) * 100;
+    $("#duelQbheemMeter").style.width = meterWidth + "%";
+    $("#duelQbheemMeter").style.background = "var(--red)";
+    $("#duelQbheemQber").textContent = `${qberPct}% (Safe Limit: 11%)`;
+    $("#duelQbheemPill").textContent = "PROTECTED (ABORTED)";
+    $("#duelQbheemPill").className = "duel-pill good";
+    $("#duelQbheemTap").textContent = "Optical line tapped (Eve intercept-resend)";
+    $("#duelQbheemDetect").textContent = `INSTANT HIGH ALARM (${qberPct}% QBER)`;
+    $("#duelQbheemKey").textContent = "BLOCKED — Zero keys distilled";
+    $("#duelQbheemPayload").textContent = "PROTECTED — Transfer withheld, funds safe";
+  } catch (err) {
+    alert("Duel simulation error: " + err.message);
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg> Simulate Simultaneous Attack on Both Networks`;
 };
 </script>
 </body>

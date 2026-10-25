@@ -86,13 +86,13 @@ def exp_intercept():
 
 
 @app.get("/api/rsa")
-def rsa(mitm: bool = False):
-    return rsa_baseline.rsa_handshake(mitm=mitm)
+def rsa(mitm: bool = False, bits: int = 1024):
+    return rsa_baseline.rsa_handshake(mitm=mitm, bits=bits)
 
 
 @app.get("/api/rsa/harvest")
-def rsa_harvest():
-    return rsa_baseline.harvest_now_decrypt_later()
+def rsa_harvest(prime_bits: int = 32):
+    return rsa_baseline.harvest_now_decrypt_later(prime_bits=prime_bits)
 
 
 app.mount("/static", StaticFiles(directory=os.path.join(HERE, "static")), name="static")
