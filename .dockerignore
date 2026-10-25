@@ -1,0 +1,15 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.venv
+venv
+env
+python311
+python311.zip
+.git
+.gitignore
+.pytest_cache
+.vscode
+.idea

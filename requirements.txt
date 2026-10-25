@@ -1,0 +1,9 @@
+numpy
+matplotlib
+pycryptodome
+fastapi
+uvicorn
+qiskit
+qiskit-aer
+pytest
+httpx
