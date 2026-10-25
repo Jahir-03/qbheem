@@ -19,7 +19,7 @@ except ImportError:
     QISKIT = False
 
 HERE = os.path.dirname(__file__)
-app = FastAPI(title="BB84 interbank QKD")
+app = FastAPI(title="QBheem - Quantum Interbank Protection")
 
 
 class SessionReq(BaseModel):

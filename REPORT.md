@@ -1,4 +1,4 @@
-# BB84 + AES-256 vs classical RSA key exchange
+# QBheem: BB84 + AES-256 vs Classical RSA Key Exchange
 
 All numbers come from this repository (16,384 qubits per session, 20% of the sifted key sampled for QBER, 1-2% depolarizing noise unless stated). Re-run `python -m qkd.experiments` to regenerate the figures in `figures/`.
 

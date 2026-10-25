@@ -1,6 +1,6 @@
-# BB84 interbank key exchange
+# QBheem — Quantum-Secured Interbank Protection
 
-Bank A (Alice) and Bank B (Bob) agree on a 256-bit AES key over a simulated quantum link, then use it to encrypt a transfer. Eve can tap the line. The dashboard is a plain HTML page that calls a FastAPI backend, which runs the real Python code (NumPy or Qiskit).
+Bank A (Alice) and Bank B (Bob) agree on a 256-bit AES key over a simulated quantum link (BB84 protocol) to encrypt high-value financial transfers. Like its namesake protector, **QBheem** fiercely shields the channel against eavesdroppers (Eve). If someone taps the optical fiber, quantum state disturbance exposes the intrusion immediately and aborts the session before any money moves. The dashboard calls a FastAPI backend powered by real Python quantum simulation (NumPy and Qiskit backends).
 
 ## Run it
 
